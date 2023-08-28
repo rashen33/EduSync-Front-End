@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
-
 *{
     margin: 0;
     padding: 0;
@@ -45,10 +44,6 @@ body{
     margin-top: 15px;
     background-color: #f2f2f2;
 }
-.container form .form{
-    position: absolute;
-    background-color: #fff;
-}
 .container form .details{
     margin-top: 17px;
 }
@@ -71,6 +66,21 @@ body{
     width: calc(100% / 3 - 15px);
     flex-direction: column;
     margin: 4px
+}
+.container form .student-img img{
+    display: flex;
+    width: 150px;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+.container form .student-img .upload-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
 }
 .input-fields label{
     font-size: 12px;
