@@ -76,11 +76,23 @@ body{
     border-radius: 50%;
     margin: 0 auto;
 }
-.container form .student-img .upload-btn{
+.container form .student-img .upload{
     display: flex;
-    justify-content: center;
-    align-items: center;
     width: 150px;
+    background: #94A684;
+    color: #fff;
+    font-size: 12px;
+    align-items: center;
+    font-weight: 400;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 200px;
+    cursor: pointer;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+.container form .student-img .upload input{
+    display: none;
 }
 .input-fields label{
     font-size: 12px;
@@ -120,7 +132,7 @@ body{
     justify-content: center;
     height: 45px;
     max-width: 200px;
-    width: 100%;
+    width: 100%;    
     border: none;
     outline: none;
     color: #fff;
