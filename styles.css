@@ -87,9 +87,9 @@ body{
     font-weight: 500;
     color: #2e2e2e;
 }
-.input-fields input{
+.input-fields input,select{
     outline: none;
-    font-size: 14px;
+    font-size: 10px;
     font-weight: 400;
     color: #333;
     border-radius: 5px;
@@ -106,6 +106,13 @@ body{
 }
 .input-fields input[type="date"]:valid{
     color:#333;
+}
+.input-fields .sex-radio{
+    display: flex;
+    align-items: center;
+}
+.input-fields .sex-radio label{
+    margin-right: 20px;
 }
 .container form button{
     display: flex;
