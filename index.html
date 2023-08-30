@@ -14,7 +14,7 @@
             <div class="form first">
                 <div class="student-img">
                     <span class="title">Student Image</span>
-                    <img src="assets/blank-profile-picture-973460_1280.webp" alt="pro-pic">
+                    <img src="assets/blank-profile-picture-973460_1280.webp" alt="pro-pic" id="profile-pic">
                     <div class="upload">
                         <label for="input-img">Upload Image</label>
                         <input type="file" accept="image/jpeg,image/png,image/jpg" id="input-img">
@@ -25,42 +25,40 @@
                     <div class="fields">
                          <div class="input-fields">
                             <label>Full Name</label>
-                            <input type="text" placeholder="Enter your name" required>
+                            <input type="text" placeholder="Enter your name" required id="name">
                         </div>                        
                         
                         <div class="input-fields">
                             <label>Date of Birth</label>
-                            <input type="date" placeholder="Enter your date of birth" required>
+                            <input type="date" placeholder="Enter your date of birth" required id="dob">
                         </div>                        
                         
                         <div class="input-fields">
                             <label>Sex</label>
                             <div class="sex-radio">
-                                <input type="radio" name="sex" id="radio"/>
-                                <label>Male</label>
+                                <input type="radio" name="sex" class="radio" value="Male"/> &nbspMale &nbsp
                           
-                                <input type="radio" name="sex" id="radio"/>
-                                <label>Female</label>
+                                <input type="radio" name="sex" class="radio" value="Female"/>  &nbspFemale
                             </div>
                         </div>
                         <div class="input-fields">
                             <label>Email</label>
-                            <input type="email" placeholder="Enter your email" required>
+                            <input type="email" placeholder="Enter your email" required id="email">
                         </div>                        
                         
                         <div class="input-fields">
                             <label>Telephone Number</label>
-                            <input type="tel" placeholder="Enter your number" required>
+                            <input type="tel" placeholder="Enter your number" required id="tpNumber">
                         </div>                        
                         
                         <div class="input-fields">
                             <label>Address</label>
-                            <input type="text" placeholder="Enter your address" required>
+                            <input type="text" placeholder="Enter your address" required id="address">
                         </div>
 
                         <div class="input-fields">
                             <label>NIC</label>
-                            <input type="text" placeholder="Enter your NIC number" required>
+                            <input type="text" placeholder="Enter your NIC number" required id="nic">
                         </div>
                     </div>
 
@@ -70,7 +68,7 @@
                             <label>School</label>
                             <select name="school" id="school" required>
                                 <option>Select your school</option>
-                                <option value="Engineering">Engineering</option>
+                                <option value="Engineering" class="school">Engineering</option>
                               </select>
                         </div>                        
                         
@@ -78,18 +76,18 @@
                             <label>Department</label>
                             <select name="department" id="department" required>
                                 <option>Select your department</option>
-                                <option value="Civil">Department of Civil Engineering</option>
-                                <option value="Mechanical">Department of Mechanical Engineering</option>
-                                <option value="Electrical">Department of Electrical Engineering</option>
+                                <option value="Civil" class="department">Department of Civil Engineering</option>
+                                <option value="Mechanical" class="department">Department of Mechanical Engineering</option>
+                                <option value="Electrical" class="department">Department of Electrical Engineering</option>
                               </select>
                         </div>                        
                         
                         <div class="input-fields">
                             <label>Specialization</label>
-                            <select name="department" id="department" required>
+                            <select name="specialization" id="specialization" required>
                                 <option>Select your specialization</option>
-                                <option value="BSc.(Hons)">BSc.(Hons) in Engineering</option>
-                                <option value="BEng">BEng</option>
+                                <option value="BSc.(Hons)" class="specialization">BSc.(Hons) in Engineering</option>
+                                <option value="BEng" class="specialization">BEng Curtin University</option>
                               </select>
                         </div>                        
                         
