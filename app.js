@@ -1,5 +1,5 @@
 "use strict";
-//------Uploading the profile pic--------------
+//------Updating the profile pic--------------
 let profilePic = document.getElementById("profile-pic");
 let inputFile = document.getElementById("input-img");
 
@@ -7,7 +7,7 @@ inputFile.onchange = function () {
   profilePic.src = URL.createObjectURL(inputFile.files[0]);
 };
 
-//------Getting the data from the front end----------
+//------Getting the student entity data from the front end----------
 function Student(
   name,
   dob,
@@ -34,14 +34,12 @@ function Student(
 
 let submitBtn = document.querySelector(".submit-btn");
 function displayRadioValue() {
-    let ele = document.getElementsByName('sex');
+  let ele = document.getElementsByName("sex");
 
-    for (let i = 0; i < ele.length; i++) {
-        if (ele[i].checked)
-            return ele[i].value;
-    }
+  for (let i = 0; i < ele.length; i++) {
+    if (ele[i].checked) return ele[i].value;
+  }
 }
-
 
 submitBtn.addEventListener("click", () => {
   let name = document.getElementById("name").value;
@@ -68,7 +66,6 @@ submitBtn.addEventListener("click", () => {
     course
   );
 
-
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
@@ -87,5 +84,4 @@ submitBtn.addEventListener("click", () => {
     .catch((error) => console.log("error", error));
 
   console.log(StudentOb);
-
 });

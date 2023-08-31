@@ -12,14 +12,18 @@
 
         <form action="#">
             <div class="form first">
+
                 <div class="student-img">
                     <span class="title">Student Image</span>
-                    <img src="assets/blank-profile-picture-973460_1280.webp" alt="pro-pic" id="profile-pic">
-                    <div class="upload">
-                        <label for="input-img">Upload Image</label>
-                        <input type="file" accept="image/jpeg,image/png,image/jpg" id="input-img">
-                    </div>
+                    <form action="add" method="post" enctype="multipart/form-data">
+                        <img src="assets/blank-profile-picture-973460_1280.webp" alt="pro-pic" id="profile-pic">
+                        <div class="upload">
+                            <label for="input-img">Upload Image</label>
+                            <input type="file" accept="image/jpeg,image/png,image/jpg" name="file" id="input-img">
+                        </div>
+                    </form>
                 </div> 
+                
                 <div class="details personal">
                     <span class="title">Personal Details</span>
                     <div class="fields">
