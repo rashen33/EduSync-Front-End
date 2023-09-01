@@ -153,3 +153,20 @@ form .buttons{
 form .buttons button{
     margin-right: 15px;
 }
+
+@media (max-width: 750px) {
+    .container form{
+        overflow-y: scroll;
+    }
+    .container form::-webkit-scrollbar{
+        display: none;
+    }
+    form .fields .input-fields{
+        width: calc(100% / 2 - 15px);
+    }
+}
+@media (max-width: 550px) {
+    form .fields .input-fields{
+        width: 100%;
+    }
+}
