@@ -56,23 +56,43 @@ const validateInputs = () => {
 
   //Validation for the birthday
 
-  let mm = dobValue.substring(5,7);
-  let dd = dobValue.substring(8,10);
-  let yy = dobValue.substring(0,4);
+  const inValidDob = (dobValue) => {
+    let mm = dobValue.substring(5,7);
+    let dd = dobValue.substring(8,10);
+    let yy = dobValue.substring(0,4);
 
-  const date = new Date();
-  let year = date.getFullYear();
-  let month = date.getMonth()+1;
-  let day = date.getDay;
+    const date = new Date();
+    let year = date.getFullYear();
+    let month = date.getMonth()+1;
+    let day = date.getDay;
+
+    if(yy >= year){
+      return true;
+    }
+    return false;
+  }
 
   if(dobValue === ''){
     setError(dobE,'Birthday is required');
-  }else if(yy >= year){ //the selected year should be lesser than the current year
+  }else if(inValidDob(dobValue)){
     setError(dobE,'Enter valid birthday');
   }else{
     setSuccess(dobE);
   }
 
+  //Validating the email
+  const isValidEmail = emailValue => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(emailValue).toLowerCase());
+  } 
+
+  if(emailValue === '') {
+    setError(emailE, 'Email is required');
+  } else if (!isValidEmail(emailValue)) {
+      setError(emailE, 'Provide a valid email address');
+  } else {
+      setSuccess(emailE);
+  }
 
 
 
