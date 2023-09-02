@@ -9,14 +9,14 @@ inputFile.onchange = function () {
 
 //-------Validations for the registration form------------------
 
-let formV = document.querySelector('.form');
-let nameV = document.getElementById("name");
-let dobV = document.getElementById("dob");
-let emailV = document.getElementById("email");
-let tpNumberV = document.getElementById("tpNumber");
-let nicV = document.getElementById("nic");
+let formE = document.querySelector('.form');
+let nameE = document.getElementById("name");
+let dobE = document.getElementById("dob");
+let emailE = document.getElementById("email");
+let tpNumberE = document.getElementById("tpNumber");
+let nicE = document.getElementById("nic");
 
-formV.addEventListener('submit', e => {
+formE.addEventListener('submit', e => {
   e.preventDefault();
 
   validateInputs();
@@ -41,17 +41,41 @@ const setSuccess = element => {
 }
 
 const validateInputs = () => {
-  let nameValue = nameV.value.trim();
-  let dobValue = dobV.value.trim();
-  let emailValue = emailV.value.trim();
-  let tpNumberValue = tpNumberV.value.trim();
-  let nicValue = nicV.value.trim();
+  let nameValue = nameE.value.trim();
+  let dobValue = dobE.value.trim();
+  let emailValue = emailE.value.trim();
+  let tpNumberValue = tpNumberE.value.trim();
+  let nicValue = nicE.value.trim();
 
+  //Validation for the name
   if(nameValue === ''){
-    setError(nameV, 'Fullname is required');
+    setError(nameE, 'Fullname is required');
   }else{
-    setSuccess(nameV);
+    setSuccess(nameE);
   }
+
+  //Validation for the birthday
+
+  let mm = dobValue.substring(5,7);
+  let dd = dobValue.substring(8,10);
+  let yy = dobValue.substring(0,4);
+
+  const date = new Date();
+  let year = date.getFullYear();
+  let month = date.getMonth()+1;
+  let day = date.getDay;
+
+  if(dobValue === ''){
+    setError(dobE,'Birthday is required');
+  }else if(yy >= year){ //the selected year should be lesser than the current year
+    setError(dobE,'Enter valid birthday');
+  }else{
+    setSuccess(dobE);
+  }
+
+
+
+
 }
 
 
