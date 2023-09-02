@@ -170,3 +170,17 @@ form .buttons button{
         width: 100%;
     }
 }
+.form .input-fields input:focus{
+    outline: none;
+}
+.input-fields.success input{
+    border-color: #09c372;
+}
+.input-fields.error input{
+    border-color: #ff3860;
+}
+.input-fields .error{
+    color: #ff3860;
+    font-size: 10px;
+    height: 13px;
+}

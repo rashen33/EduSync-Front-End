@@ -10,7 +10,7 @@
     <div class="container">
         <header>Registration</header>
 
-        <form action="#">
+        <form action="#" class="form">
             <div class="form first">
 
                 <div class="student-img">
@@ -22,20 +22,23 @@
                             <input type="file" accept="image/jpeg,image/png,image/jpg" name="file" id="input-img">
                         </div>
                     </form>
-                </div> 
+        
                 
                 <div class="details personal">
                     <span class="title">Personal Details</span>
                     <div class="fields">
                          <div class="input-fields">
                             <label>Full Name</label>
-                            <input type="text" placeholder="Enter your name" required id="name">
-                        </div>                        
+                            <input type="text"  placeholder="Enter your name"  id="name">
+                            <div class="error"></div> 
+                        </div> 
+                                              
                         
                         <div class="input-fields">
                             <label>Date of Birth</label>
-                            <input type="date" placeholder="Enter your date of birth" required id="dob">
-                        </div>                        
+                            <input type="date" placeholder="Enter your date of birth" id="dob">
+                            <div class="error"></div>                       
+                        </div> 
                         
                         <div class="input-fields">
                             <label>Sex</label>
@@ -47,25 +50,29 @@
                         </div>
                         <div class="input-fields">
                             <label>Email</label>
-                            <input type="email" placeholder="Enter your email" required id="email">
-                        </div>                        
-                        
+                            <input type="email" placeholder="Enter your email" id="email">
+                            <div class="error"></div> 
+                        </div> 
+
                         <div class="input-fields">
                             <label>Telephone Number</label>
-                            <input type="tel" placeholder="Enter your number" required id="tpNumber">
+                            <input type="tel" placeholder="Enter your number" id="tpNumber">
+                            <div class="error"></div> 
                         </div>                        
-                        
+
                         <div class="input-fields">
                             <label>Address</label>
-                            <input type="text" placeholder="Enter your address" required id="address">
+                            <input type="text" placeholder="Enter your address" id="address">
+                            <div class="error"></div> 
                         </div>
 
                         <div class="input-fields">
                             <label>NIC</label>
-                            <input type="text" placeholder="Enter your NIC number" required id="nic">
+                            <input type="text" placeholder="Enter your NIC number" id="nic">
+                            <div class="error"></div> 
                         </div>
-                    </div>
 
+                    </div>
                     <span class="title">Course Details</span>
                     <div class="fields">
                          <div class="input-fields">

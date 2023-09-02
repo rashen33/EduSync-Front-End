@@ -15,7 +15,7 @@ btn.addEventListener("click",function (){
           <div class="container">
             <div class="pro-image">
                 <img
-                src="assets/blank-profile-picture-973460_1280.webp"
+                src="/assets/blank-profile-picture-973460_1280.webp"
                 alt="pro-pic"
                 />
             </div>
