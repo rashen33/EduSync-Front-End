@@ -194,7 +194,6 @@ function validateSex(){
     return false;
   }
 
-
   if(!isChecked(sexE)){
     setError(sexEl, 'Select an option');
     return false;
@@ -212,36 +211,35 @@ function validateSelectInput(schooE){
     setError(schooE, 'Select an option');
     return false;
   } else {
-      setSuccess(schooE);
-      return true;
+    setSuccess(schooE);
+    return true;
   }
-
 }
-  
-
-const validateInputs = () => {
-  let departmentValue = departmentE.value.trim();
-  let courseValue = courseE.value.trim();
-
-
-
 
   //Validating the department
+function validateSelectInput(departmentE){
+  let departmentValue = departmentE.value.trim();
+
   if(departmentValue === 'Select your department') {
     setError(departmentE, 'Select an option');
+    return false;
   } else {
-      setSuccess(departmentE);
+    setSuccess(departmentE);
+    return true;
   }
+}
 
   //Validating the Course
+function validateSelectInput(courseE){
+  let courseValue = courseE.value.trim();
+
   if(courseValue === 'Select your specialization') {
     setError(courseE, 'Select an option');
+    return false;
   } else {
-      setSuccess(courseE);
+    setSuccess(courseE);
+    return true;
   }
-
-  return true;
-
 }
 
 
@@ -255,8 +253,8 @@ const isValidAllInputs = () => {
   const isValidNic = validateNic();
   const isValidSex = validateSex();
   const isValidSchool = validateSelectInput(schooE);
-  // const isValidDepartment = validateSelectInput(departmentE, 'Select your department');
-  // const isValidCourse = validateSelectInput(courseE, 'Select your specialization');
+  const isValidDepartment = validateSelectInput(departmentE);
+  const isValidCourse = validateSelectInput(courseE);
 
   return (
     isValidName &&
@@ -266,9 +264,9 @@ const isValidAllInputs = () => {
     isValidTpNumber &&
     isValidNic &&
     isValidSex &&
-    isValidSchool
-    // isValidDepartment &&
-    // isValidCourse
+    isValidSchool &&
+    isValidDepartment &&
+    isValidCourse
   );
 };
 
