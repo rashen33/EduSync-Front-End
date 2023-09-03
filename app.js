@@ -22,11 +22,6 @@ let schooE = document.querySelector("#school");
 let departmentE = document.querySelector("#department");
 let courseE = document.querySelector("#specialization");
 
-// formE.addEventListener('submit', e => {
-//   e.preventDefault();
-
-//   validateInputs();
-// });
 
 const setError = (element, message) => {
   const inputField = element.parentElement;
@@ -59,21 +54,9 @@ function validateName(){
     }
   }
 
-const validateInputs = () => {
+//Validation for the birthday
+function validateDob(){
   let dobValue = dobE.value.trim();
-  let emailValue = emailE.value.trim();
-  let addressValue = addressE.value.trim();
-  let tpNumberValue = tpNumberE.value.trim();
-  let nicValue = nicE.value.trim();
-  let schoolValue = schooE.value.trim();
-  let departmentValue = departmentE.value.trim();
-  let courseValue = courseE.value.trim();
-
-
- 
-
-  //Validation for the birthday
-
   const inValidDob = (dobValue) => {
     let mm = dobValue.substring(5,7);
     let dd = dobValue.substring(8,10);
@@ -92,13 +75,19 @@ const validateInputs = () => {
 
   if(dobValue === ''){
     setError(dobE,'Birthday is required');
+    return false;
   }else if(inValidDob(dobValue)){
     setError(dobE,'Enter valid birthday');
+    return false;
   }else{
     setSuccess(dobE);
+    return true;
   }
+}
 
   //Validating the email
+function validateEmail(){
+  let emailValue = emailE.value.trim();
   const isValidEmail = emailValue => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(emailValue).toLowerCase());
@@ -106,11 +95,25 @@ const validateInputs = () => {
 
   if(emailValue === '') {
     setError(emailE, 'Email is required');
+    return false;
   } else if (!isValidEmail(emailValue)) {
       setError(emailE, 'Provide a valid email address');
+      return false;
   } else {
       setSuccess(emailE);
+      return true;
   }
+
+}
+
+const validateInputs = () => {
+  let addressValue = addressE.value.trim();
+  let tpNumberValue = tpNumberE.value.trim();
+  let nicValue = nicE.value.trim();
+  let schoolValue = schooE.value.trim();
+  let departmentValue = departmentE.value.trim();
+  let courseValue = courseE.value.trim();
+
 
   //Validating the address
 
@@ -223,7 +226,7 @@ const validateInputs = () => {
 const isValidAllInputs = () => {
   const isValidName = validateName();
   const isValidDob = validateDob();
-  // const isValidEmail = validateEmail();
+  const isValidEmail = validateEmail();
   // const isValidAddress = validateAddress();
   // const isValidTpNumber = validateTpNumber();
   // const isValidNic = validateNic();
@@ -233,8 +236,8 @@ const isValidAllInputs = () => {
   // const isValidCourse = validateSelectInput(courseE, 'Select your specialization');
 
   return (
-    isValidName 
-    // isValidDob &&
+    isValidName &&
+    isValidDob 
     // isValidEmail &&
     // isValidAddress &&
     // isValidTpNumber &&
