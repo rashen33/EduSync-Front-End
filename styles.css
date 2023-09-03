@@ -184,3 +184,9 @@ form .buttons button{
     font-size: 10px;
     height: 13px;
 }
+.input-fields.success select{
+    border-color: #09c372;
+}
+.input-fields.error select{
+    border-color: #ff3860;
+}
