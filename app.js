@@ -14,6 +14,7 @@ let nameE = document.getElementById("name");
 let dobE = document.getElementById("dob");
 let emailE = document.getElementById("email");
 let tpNumberE = document.getElementById("tpNumber");
+let addressE = document.getElementById("address");
 let nicE = document.getElementById("nic");
 
 formE.addEventListener('submit', e => {
@@ -44,6 +45,7 @@ const validateInputs = () => {
   let nameValue = nameE.value.trim();
   let dobValue = dobE.value.trim();
   let emailValue = emailE.value.trim();
+  let addressValue = addressE.value.trim();
   let tpNumberValue = tpNumberE.value.trim();
   let nicValue = nicE.value.trim();
 
@@ -94,10 +96,49 @@ const validateInputs = () => {
       setSuccess(emailE);
   }
 
+  //Validating the address
+
+  if(addressValue === '') {
+    setError(addressE, 'Address is required');
+  } else {
+      setSuccess(addressE);
+  }
+
+  //Validating the tpNumber
+
+  let isValidTpNumber = tpNumberValue => {
+    if(tpNumberValue.charAt(0) != 0){
+      return false;
+    }
+
+    let tpS = tpNumberValue.toString();
+    let tp = tpS.substring(1,10);
+
+    if(tp.length != 9){
+      return false;
+    }
+
+    let serviceCode = ["70","71","72","74","75","76","77","78","11","36","31","33","38","34","81","54","51","52","66","91","41","47","21","23","24","63","65","67","26","25","27","32","37","55","57","45","35"];
+    for(let i=0; i<serviceCode.length; i++){
+      if(tpS.substring(1,3) == (serviceCode[i])){
+        return true;
+      }
+    }
+
+
+    return false;
+  }
+
+  if(tpNumberValue === '') {
+    setError(tpNumberE, 'Telephone number is required');
+  } else if (!isValidTpNumber(tpNumberValue)){
+    setError(tpNumberE, 'Invalid telephone number');
+  } else {
+      setSuccess(tpNumberE);
+  }
 
 
 }
-
 
 
 
