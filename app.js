@@ -103,8 +103,6 @@ function validateEmail(){
       setSuccess(emailE);
       return true;
   }
-
-
 }
 
 //Validating the address
@@ -118,22 +116,10 @@ function validateAddress(){
     return true;
   }
 }
-  
-
-const validateInputs = () => {
-  let tpNumberValue = tpNumberE.value.trim();
-  let nicValue = nicE.value.trim();
-  let schoolValue = schooE.value.trim();
-  let departmentValue = departmentE.value.trim();
-  let courseValue = courseE.value.trim();
-
-
-
-
-
 
   //Validating the tpNumber
-
+function validateTpNumber(){
+  let tpNumberValue = tpNumberE.value.trim();
   let isValidTpNumber = tpNumberValue => {
     if(tpNumberValue.charAt(0) != 0){
       return false;
@@ -152,41 +138,67 @@ const validateInputs = () => {
         return true;
       }
     }
-
-
     return false;
   }
 
   if(tpNumberValue === '') {
     setError(tpNumberE, 'Telephone number is required');
+    return false;
   } else if (!isValidTpNumber(tpNumberValue)){
     setError(tpNumberE, 'Invalid telephone number');
+    return false;
   } else {
       setSuccess(tpNumberE);
+      return false;
   }
+
+}
 
   //Validating the nic
+function validateNic(){ 
+  let nicValue = nicE.value.trim();
+
   let isValidNic = nicValue => {
-    let nicS = nicValue.toString();
-
-    if(nicS.length == 12){
-      return true;
-    }
-    if(nicS.length != 10 && nicS.substring(8,10).toUpperCase != 'V'){
-      return false;
-    }
+  let nicS = nicValue.toString();
+  if(nicS.length == 12){
     return true;
-
   }
-
-
-  if(nicValue == ''){
-    setError(nicE, 'NIC is required');
-  }else if(!isValidNic(nicValue)){
-    setError(nicE, 'Invalid NIC number');
-  }else{
-    setSuccess(nicE);
+  if(nicS.length != 10 && nicS.substring(8,10).toUpperCase != 'V'){
+    return false;
   }
+  return true;
+}
+
+
+if(nicValue == ''){
+  setError(nicE, 'NIC is required');
+  return false;
+}else if(!isValidNic(nicValue)){
+  setError(nicE, 'Invalid NIC number');
+  return false;
+}else{
+  setSuccess(nicE);
+  return true;
+}
+
+}
+  
+
+const validateInputs = () => {
+  let schoolValue = schooE.value.trim();
+  let departmentValue = departmentE.value.trim();
+  let courseValue = courseE.value.trim();
+
+
+
+
+
+
+
+
+
+
+
 
   //Validating the radio button of sex
   let isChecked = sexE =>{
@@ -237,8 +249,8 @@ const isValidAllInputs = () => {
   const isValidDob = validateDob();
   const isValidEmail = validateEmail();
   const isValidAddress = validateAddress();
-  // const isValidTpNumber = validateTpNumber();
-  // const isValidNic = validateNic();
+  const isValidTpNumber = validateTpNumber();
+  const isValidNic = validateNic();
   // const isValidSex = validateSex();
   // const isValidSchool = validateSelectInput(schooE, 'Select your school');
   // const isValidDepartment = validateSelectInput(departmentE, 'Select your department');
@@ -248,9 +260,9 @@ const isValidAllInputs = () => {
     isValidName &&
     isValidDob &&
     isValidEmail &&
-    isValidAddress 
-    // isValidTpNumber &&
-    // isValidNic &&
+    isValidAddress &&
+    isValidTpNumber &&
+    isValidNic
     // isValidSex &&
     // isValidSchool &&
     // isValidDepartment &&
