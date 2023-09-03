@@ -74,7 +74,7 @@ button{
     margin: 20px 10px;
     border-radius: 25px;
     font-weight: bold;
-    border: 2px solid #94A684;
+    border: transparent;
     background: #94A684;
     color: #fff;
     cursor: pointer;
@@ -88,4 +88,40 @@ section{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+#sec-2{
+    background-color: #94A684;
+}
+#sec-2 .container{
+    position: relative;
+    background-color: #fff;
+    width: 600px;
+    height: 600px;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+#sec-2 .container .buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+}
+.container header{
+    position: relative;
+    padding-top: 5px;
+    padding-left: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;    
+}
+.container header::before{
+    content: "";
+    position: absolute;
+    left: 20;
+    bottom: -2px;
+    height: 3px;
+    width: 27px;
+    border-radius: 15px;
+    background-color: #94A684;
 }
