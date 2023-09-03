@@ -137,6 +137,30 @@ const validateInputs = () => {
       setSuccess(tpNumberE);
   }
 
+  //Validating the nic
+  let isValidNic = nicValue => {
+    let nicS = nicValue.toString();
+
+    if(nicS.length == 12){
+      return true;
+    }
+    if(nicS.length != 10 && nicS.substring(8,10).toUpperCase != 'V'){
+      return false;
+    }
+
+    return true;
+
+  }
+
+
+  if(nicValue == ''){
+    setError(nicE, 'NIC is required');
+  }else if(!isValidNic(nicValue)){
+    setError(nicE, 'Invalid NIC number');
+  }else{
+    setSuccess(nicE);
+  }
+
 
 }
 
