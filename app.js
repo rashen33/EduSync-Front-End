@@ -104,10 +104,23 @@ function validateEmail(){
       return true;
   }
 
+
 }
 
-const validateInputs = () => {
+//Validating the address
+function validateAddress(){
   let addressValue = addressE.value.trim();
+  if(addressValue === '') {
+    setError(addressE, 'Address is required');
+    return false;
+  } else {
+    setSuccess(addressE);
+    return true;
+  }
+}
+  
+
+const validateInputs = () => {
   let tpNumberValue = tpNumberE.value.trim();
   let nicValue = nicE.value.trim();
   let schoolValue = schooE.value.trim();
@@ -115,13 +128,9 @@ const validateInputs = () => {
   let courseValue = courseE.value.trim();
 
 
-  //Validating the address
 
-  if(addressValue === '') {
-    setError(addressE, 'Address is required');
-  } else {
-      setSuccess(addressE);
-  }
+
+
 
   //Validating the tpNumber
 
@@ -227,7 +236,7 @@ const isValidAllInputs = () => {
   const isValidName = validateName();
   const isValidDob = validateDob();
   const isValidEmail = validateEmail();
-  // const isValidAddress = validateAddress();
+  const isValidAddress = validateAddress();
   // const isValidTpNumber = validateTpNumber();
   // const isValidNic = validateNic();
   // const isValidSex = validateSex();
@@ -238,8 +247,8 @@ const isValidAllInputs = () => {
   return (
     isValidName &&
     isValidDob &&
-    isValidEmail 
-    // isValidAddress &&
+    isValidEmail &&
+    isValidAddress 
     // isValidTpNumber &&
     // isValidNic &&
     // isValidSex &&
