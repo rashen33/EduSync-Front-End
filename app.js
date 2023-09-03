@@ -237,8 +237,8 @@ const isValidAllInputs = () => {
 
   return (
     isValidName &&
-    isValidDob 
-    // isValidEmail &&
+    isValidDob &&
+    isValidEmail 
     // isValidAddress &&
     // isValidTpNumber &&
     // isValidNic &&
