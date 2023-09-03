@@ -18,6 +18,9 @@ let emailE = document.getElementById("email");
 let tpNumberE = document.getElementById("tpNumber");
 let addressE = document.getElementById("address");
 let nicE = document.getElementById("nic");
+let schooE = document.querySelector("#school");
+let departmentE = document.querySelector("#department");
+let courseE = document.querySelector("#specialization");
 
 formE.addEventListener('submit', e => {
   e.preventDefault();
@@ -50,6 +53,9 @@ const validateInputs = () => {
   let addressValue = addressE.value.trim();
   let tpNumberValue = tpNumberE.value.trim();
   let nicValue = nicE.value.trim();
+  let schoolValue = schooE.value.trim();
+  let departmentValue = departmentE.value.trim();
+  let courseValue = courseE.value.trim();
 
   //Validation for the name
   if(nameValue === ''){
@@ -177,6 +183,27 @@ const validateInputs = () => {
     setError(sexEl, 'Select an option');
   }else{
     setSuccess(sexEl);
+  }
+
+  //Validating the school
+  if(schoolValue === 'Select your school') {
+    setError(schooE, 'Select an option');
+  } else {
+      setSuccess(schooE);
+  }
+
+  //Validating the department
+  if(departmentValue === 'Select your department') {
+    setError(departmentE, 'Select an option');
+  } else {
+      setSuccess(departmentE);
+  }
+
+  //Validating the Course
+  if(courseValue === 'Select your specialization') {
+    setError(courseE, 'Select an option');
+  } else {
+      setSuccess(courseE);
   }
 
 
