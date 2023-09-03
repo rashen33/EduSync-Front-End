@@ -159,48 +159,32 @@ function validateNic(){
   let nicValue = nicE.value.trim();
 
   let isValidNic = nicValue => {
-  let nicS = nicValue.toString();
-  if(nicS.length == 12){
+    let nicS = nicValue.toString();
+    if(nicS.length == 12){
+      return true;
+    }
+    if(nicS.length != 10 && nicS.substring(8,10).toUpperCase != 'V'){
+      return false;
+    }
     return true;
   }
-  if(nicS.length != 10 && nicS.substring(8,10).toUpperCase != 'V'){
+
+
+  if(nicValue == ''){
+    setError(nicE, 'NIC is required');
     return false;
+  }else if(!isValidNic(nicValue)){
+    setError(nicE, 'Invalid NIC number');
+    return false;
+  }else{
+    setSuccess(nicE);
+    return true;
   }
-  return true;
-}
-
-
-if(nicValue == ''){
-  setError(nicE, 'NIC is required');
-  return false;
-}else if(!isValidNic(nicValue)){
-  setError(nicE, 'Invalid NIC number');
-  return false;
-}else{
-  setSuccess(nicE);
-  return true;
-}
 
 }
-  
-
-const validateInputs = () => {
-  let schoolValue = schooE.value.trim();
-  let departmentValue = departmentE.value.trim();
-  let courseValue = courseE.value.trim();
-
-
-
-
-
-
-
-
-
-
-
 
   //Validating the radio button of sex
+function validateSex(){  
   let isChecked = sexE =>{
     for (let i = 0; i < sexE.length; i++) {
       if (sexE[i].checked){
@@ -210,19 +194,37 @@ const validateInputs = () => {
     return false;
   }
 
-  
+
   if(!isChecked(sexE)){
     setError(sexEl, 'Select an option');
+    return false;
   }else{
     setSuccess(sexEl);
+    return true;
   }
+}
 
   //Validating the school
+function validateSelectInput(schooE){
+  let schoolValue = schooE.value.trim();
+
   if(schoolValue === 'Select your school') {
     setError(schooE, 'Select an option');
+    return false;
   } else {
       setSuccess(schooE);
+      return true;
   }
+
+}
+  
+
+const validateInputs = () => {
+  let departmentValue = departmentE.value.trim();
+  let courseValue = courseE.value.trim();
+
+
+
 
   //Validating the department
   if(departmentValue === 'Select your department') {
@@ -251,8 +253,8 @@ const isValidAllInputs = () => {
   const isValidAddress = validateAddress();
   const isValidTpNumber = validateTpNumber();
   const isValidNic = validateNic();
-  // const isValidSex = validateSex();
-  // const isValidSchool = validateSelectInput(schooE, 'Select your school');
+  const isValidSex = validateSex();
+  const isValidSchool = validateSelectInput(schooE);
   // const isValidDepartment = validateSelectInput(departmentE, 'Select your department');
   // const isValidCourse = validateSelectInput(courseE, 'Select your specialization');
 
@@ -262,9 +264,9 @@ const isValidAllInputs = () => {
     isValidEmail &&
     isValidAddress &&
     isValidTpNumber &&
-    isValidNic
-    // isValidSex &&
-    // isValidSchool &&
+    isValidNic &&
+    isValidSex &&
+    isValidSchool
     // isValidDepartment &&
     // isValidCourse
   );
