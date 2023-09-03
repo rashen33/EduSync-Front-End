@@ -354,10 +354,12 @@ let submitForm = submitBtn.addEventListener('click', (event) => {
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
 
-    location.reload()
+    location.reload();
+
+    alert("Successfully Registered!")
   
   }else{
-    alert("Check your inputs!");
+    alert("Check the inputs!");
   }
   
 });
