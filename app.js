@@ -8,7 +8,6 @@ inputFile.onchange = function () {
 };
 
 //-------Validations for the registration form------------------
-
 let formE = document.querySelector('.form');
 let nameE = document.getElementById("name");
 let dobE = document.getElementById("dob");
@@ -21,7 +20,6 @@ let nicE = document.getElementById("nic");
 let schooE = document.querySelector("#school");
 let departmentE = document.querySelector("#department");
 let courseE = document.querySelector("#specialization");
-
 
 const setError = (element, message) => {
   const inputField = element.parentElement;
@@ -57,6 +55,7 @@ function validateName(){
 //Validation for the birthday
 function validateDob(){
   let dobValue = dobE.value.trim();
+
   const inValidDob = (dobValue) => {
     let mm = dobValue.substring(5,7);
     let dd = dobValue.substring(8,10);
@@ -88,6 +87,7 @@ function validateDob(){
   //Validating the email
 function validateEmail(){
   let emailValue = emailE.value.trim();
+
   const isValidEmail = emailValue => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(emailValue).toLowerCase());
@@ -97,17 +97,18 @@ function validateEmail(){
     setError(emailE, 'Email is required');
     return false;
   } else if (!isValidEmail(emailValue)) {
-      setError(emailE, 'Provide a valid email address');
-      return false;
+    setError(emailE, 'Provide a valid email address');
+    return false;
   } else {
-      setSuccess(emailE);
-      return true;
-  }
+    setSuccess(emailE);
+    return true;
+}
 }
 
 //Validating the address
 function validateAddress(){
   let addressValue = addressE.value.trim();
+
   if(addressValue === '') {
     setError(addressE, 'Address is required');
     return false;
@@ -117,9 +118,10 @@ function validateAddress(){
   }
 }
 
-  //Validating the tpNumber
+//Validating the tpNumber
 function validateTpNumber(){
   let tpNumberValue = tpNumberE.value.trim();
+
   let isValidTpNumber = tpNumberValue => {
     if(tpNumberValue.charAt(0) != 0){
       return false;
@@ -148,13 +150,13 @@ function validateTpNumber(){
     setError(tpNumberE, 'Invalid telephone number');
     return false;
   } else {
-      setSuccess(tpNumberE);
-      return false;
-  }
+    setSuccess(tpNumberE);
+    return true;
+}
 
 }
 
-  //Validating the nic
+//Validating the nic
 function validateNic(){ 
   let nicValue = nicE.value.trim();
 
@@ -183,7 +185,7 @@ function validateNic(){
 
 }
 
-  //Validating the radio button of sex
+//Validating the radio button of sex
 function validateSex(){  
   let isChecked = sexE =>{
     for (let i = 0; i < sexE.length; i++) {
@@ -203,21 +205,21 @@ function validateSex(){
   }
 }
 
-  //Validating the school
-function validateSelectInput(schooE){
+//Validating the school
+function validateSchool(schooE){
   let schoolValue = schooE.value.trim();
 
-  if(schoolValue === 'Select your school') {
-    setError(schooE, 'Select an option');
+  if(schoolValue === 'Select your school'){
+    setError(schooE,'Select an option');
     return false;
-  } else {
+  }else{
     setSuccess(schooE);
     return true;
   }
 }
 
-  //Validating the department
-function validateSelectInput(departmentE){
+//Validating the department
+function validateDepartment(departmentE){
   let departmentValue = departmentE.value.trim();
 
   if(departmentValue === 'Select your department') {
@@ -229,8 +231,8 @@ function validateSelectInput(departmentE){
   }
 }
 
-  //Validating the Course
-function validateSelectInput(courseE){
+//Validating the Course
+function validateCourse(courseE){
   let courseValue = courseE.value.trim();
 
   if(courseValue === 'Select your specialization') {
@@ -244,6 +246,8 @@ function validateSelectInput(courseE){
 
 
 //------Getting the student entity data from the front end----------
+
+//validating all the inputs
 const isValidAllInputs = () => {
   const isValidName = validateName();
   const isValidDob = validateDob();
@@ -252,9 +256,9 @@ const isValidAllInputs = () => {
   const isValidTpNumber = validateTpNumber();
   const isValidNic = validateNic();
   const isValidSex = validateSex();
-  const isValidSchool = validateSelectInput(schooE);
-  const isValidDepartment = validateSelectInput(departmentE);
-  const isValidCourse = validateSelectInput(courseE);
+  const isValidSchool = validateSchool(schooE);
+  const isValidDepartment = validateDepartment(departmentE);
+  const isValidCourse = validateCourse(courseE);
 
   return (
     isValidName &&
@@ -349,9 +353,11 @@ let submitForm = submitBtn.addEventListener('click', (event) => {
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
+
+    location.reload()
   
   }else{
-    alert("Error");
+    alert("Check your inputs!");
   }
   
 });
