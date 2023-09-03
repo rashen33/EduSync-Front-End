@@ -12,6 +12,8 @@ inputFile.onchange = function () {
 let formE = document.querySelector('.form');
 let nameE = document.getElementById("name");
 let dobE = document.getElementById("dob");
+let sexE = document.getElementsByName("sex");
+let sexEl = document.querySelector('.sex-radio')
 let emailE = document.getElementById("email");
 let tpNumberE = document.getElementById("tpNumber");
 let addressE = document.getElementById("address");
@@ -147,7 +149,6 @@ const validateInputs = () => {
     if(nicS.length != 10 && nicS.substring(8,10).toUpperCase != 'V'){
       return false;
     }
-
     return true;
 
   }
@@ -159,6 +160,23 @@ const validateInputs = () => {
     setError(nicE, 'Invalid NIC number');
   }else{
     setSuccess(nicE);
+  }
+
+  //Validating the radio button of sex
+  let isChecked = sexE =>{
+    for (let i = 0; i < sexE.length; i++) {
+      if (sexE[i].checked){
+        return true;
+      }
+    }
+    return false;
+  }
+
+  
+  if(!isChecked(sexE)){
+    setError(sexEl, 'Select an option');
+  }else{
+    setSuccess(sexEl);
   }
 
 
