@@ -21,7 +21,7 @@ body {
     width: 100%;
     border-radius: 10px;
     padding: 30px;
-    margin: 0 15px;
+    margin: 25px 15px;
     background-color: #fff;
     box-shadow: 0 15px 10px rgba(0, 0, 0, 0.1);
 }
@@ -48,7 +48,7 @@ body {
     position: relative;
     min-height: 390px;
     margin-top: 15px;
-    background-color: #f2f2f2;
+    /* background-color: #f2f2f2; */
 }
 
 .container form .details {
@@ -222,4 +222,14 @@ form .buttons button {
 
 .input-fields.error select {
     border-color: #ff3860;
+}
+
+.footer {
+    color: "black";
+    text-align: center;
+    background-color: #E4E4D0;
+}
+
+.footer p {
+    padding: 8px;
 }
