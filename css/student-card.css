@@ -1,22 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-body{
+
+body {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #AEC3AE;
 }
-form{
+
+form {
     display: flex;
     flex-wrap: wrap;
 }
-.container{
+
+.container {
     position: relative;
     max-width: 900px;
     width: 500px;
@@ -26,8 +30,9 @@ form{
     margin: 0 15px;
     margin-top: 30px;
     background-color: #fff;
-    box-shadow: 0 15px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 10px rgba(0, 0, 0, 0.1);
 }
+
 form .container {
     position: relative;
     justify-content: center;
@@ -35,7 +40,8 @@ form .container {
     margin-top: 15px;
     background-color: #f2f2f2;
 }
-.container .pro-image img{
+
+.container .pro-image img {
     display: flex;
     width: 150px;
     height: 150px;
@@ -44,27 +50,32 @@ form .container {
     align-items: center;
     margin: 0 auto 10px auto;
 }
-.container .personal-info span{
+
+.container .personal-info span {
     display: flex;
     font-size: 20px;
     align-items: center;
     justify-content: center;
 }
-.container .personal-info .info{
+
+.container .personal-info .info {
     font-size: 16px;
 }
-.container .course-details span{
+
+.container .course-details span {
     display: flex;
     font-size: 20px;
     align-items: center;
     justify-content: center;
 }
-.container .buttons{
+
+.container .buttons {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.container .buttons button{
+
+.container .buttons button {
     border-radius: 20px;
     background-color: #AEC3AE;
     border: none;
@@ -72,6 +83,7 @@ form .container {
     height: 30px;
     margin: 10px 0 10px 0;
 }
-.container .buttons .update-btn{
+
+.container .buttons .update-btn {
     margin-right: 16px;
 }

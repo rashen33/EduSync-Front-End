@@ -1,18 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-body{
+
+body {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #AEC3AE;
 }
-.container{
+
+.container {
     position: relative;
     max-width: 900px;
     width: 100%;
@@ -20,15 +23,17 @@ body{
     padding: 30px;
     margin: 0 15px;
     background-color: #fff;
-    box-shadow: 0 15px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 10px rgba(0, 0, 0, 0.1);
 }
-.container header{
+
+.container header {
     position: relative;
     font-size: 20px;
     font-weight: 600;
-    color: #333;    
+    color: #333;
 }
-.container header::before{
+
+.container header::before {
     content: "";
     position: absolute;
     left: 0;
@@ -38,36 +43,42 @@ body{
     border-radius: 15px;
     background-color: #94A684;
 }
-.container form{
+
+.container form {
     position: relative;
     min-height: 390px;
     margin-top: 15px;
     background-color: #f2f2f2;
 }
-.container form .details{
+
+.container form .details {
     margin-top: 17px;
 }
-.container form .title{
+
+.container form .title {
     display: block;
-    margin-bottom: 8px ;
+    margin-bottom: 8px;
     font-size: 16px;
     font-weight: 500;
     margin: 6px 0;
     color: #333;
 }
-.container form .fields{
+
+.container form .fields {
     display: flex;
     flex-wrap: wrap;
-    align-items:center;
+    align-items: center;
     justify-content: space-between;
 }
-.container form .input-fields{
+
+.container form .input-fields {
     display: flex;
     width: calc(100% / 3 - 15px);
     flex-direction: column;
     margin: 4px
 }
-.container form .student-img img{
+
+.container form .student-img img {
     display: flex;
     width: 150px;
     height: 150px;
@@ -76,7 +87,8 @@ body{
     border-radius: 50%;
     margin: 0 auto;
 }
-.container form .student-img .upload{
+
+.container form .student-img .upload {
     display: flex;
     width: 150px;
     background: #94A684;
@@ -91,15 +103,19 @@ body{
     margin: 0 auto;
     margin-top: 10px;
 }
-.container form .student-img .upload input{
+
+.container form .student-img .upload input {
     display: none;
 }
-.input-fields label{
+
+.input-fields label {
     font-size: 12px;
     font-weight: 500;
     color: #2e2e2e;
 }
-.input-fields input,select{
+
+.input-fields input,
+select {
     outline: none;
     font-size: 10px;
     font-weight: 400;
@@ -108,31 +124,37 @@ body{
     border: 1px solid #aaa;
     padding: 0 15px;
     height: 35px;
-    margin: 5px 0 ;
+    margin: 5px 0;
 }
-.input-fields input:is(:focus, :valid){
-    box-shadow: 0 3px 6px rgba(0,0,0,0.13);
+
+.input-fields input:is(:focus, :valid) {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
 }
-.input-fields input[type="date"]{
+
+.input-fields input[type="date"] {
     color: #707070;
 }
-.input-fields input[type="date"]:valid{
-    color:#333;
+
+.input-fields input[type="date"]:valid {
+    color: #333;
 }
-.input-fields .sex-radio{
+
+.input-fields .sex-radio {
     display: flex;
     align-items: center;
 }
-.input-fields .sex-radio label{
+
+.input-fields .sex-radio label {
     margin-right: 20px;
 }
-.container form button{
+
+.container form button {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 45px;
     max-width: 200px;
-    width: 100%;    
+    width: 100%;
     border: none;
     outline: none;
     color: #fff;
@@ -142,51 +164,62 @@ body{
     transition: all 0.3s linear;
     cursor: pointer;
 }
-form button:hover{
+
+form button:hover {
     background-color: #AEC3AE;
 }
 
-form .buttons{
+form .buttons {
     display: flex;
     align-items: center;
 }
-form .buttons button{
+
+form .buttons button {
     margin-right: 15px;
 }
 
 @media (max-width: 750px) {
-    .container form{
+    .container form {
         overflow-y: scroll;
     }
-    .container form::-webkit-scrollbar{
+
+    .container form::-webkit-scrollbar {
         display: none;
     }
-    form .fields .input-fields{
+
+    form .fields .input-fields {
         width: calc(100% / 2 - 15px);
     }
 }
+
 @media (max-width: 550px) {
-    form .fields .input-fields{
+    form .fields .input-fields {
         width: 100%;
     }
 }
-.form .input-fields input:focus{
+
+.form .input-fields input:focus {
     outline: none;
 }
-.input-fields.success input{
+
+.input-fields.success input {
     border-color: #09c372;
 }
-.input-fields.error input{
+
+.input-fields.error input {
     border-color: #ff3860;
 }
-.input-fields .error{
+
+.input-fields .error {
     color: #ff3860;
     font-size: 10px;
     height: 13px;
 }
-.input-fields.success select{
+
+.input-fields.success select {
     border-color: #09c372;
 }
-.input-fields.error select{
+
+.input-fields.error select {
     border-color: #ff3860;
 }
