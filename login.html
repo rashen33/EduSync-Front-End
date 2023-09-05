@@ -4,10 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduSync-Login Page</title>
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
     
+    <div class="container">
+        <div class="forms">
+
+            <!-- Login form -->
+            <div class="form login">
+                <span class="title">Login</span>
+
+                <form action="#">
+                    <div class="input-field">
+                        <input type="text" placeholder="Enter your email">
+                        <i class="uil uil-envelope"></i>                   
+                     </div>
+
+                    <div class="input-field">
+                        <input type="password" placeholder="Enter your password">
+                        <i class="uil uil-keyhole-circle icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
+                    </div>
+
+                    <div class="checkbox-text">
+                        <div class="checkbox-content">
+                            <input type="checkbox" id="logCheck">
+                            <label for="logCheck" class="text">Remember me</label>
+                        </div>
+
+                        <a href="#" class="text">Forgot password?</a>
+                    </div>
+
+                    <div class="input-field button">
+                        <input type="button" value="Login now" >
+                    </div>
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">New Student?</span>
+                    <a href="#" class="text signup-text">Singup now</a>
+                </div>
+
+            </div>
+
+            <!-- Registration Form -->
+            <div class="form login">
+                <span class="title">Registration</span>
+
+                <form action="#">
+                    <div class="input-field">
+                        <input type="text" placeholder="Enter your username">
+                        <i class="uil uil-user"></i>
+                    </div>                    
+                    
+                    <div class="input-field">
+                        <input type="text" placeholder="Enter your email">
+                        <i class="uil uil-envelope"></i>
+                    </div>
+
+                    <div class="input-field">
+                        <input type="password" placeholder="Enter your password">
+                        <i class="uil uil-keyhole-circle icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
+                    </div>
+
+                    <div class="input-field">
+                        <input type="password" placeholder="Confirm your password">
+                        <i class="uil uil-keyhole-circle icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
+                    </div>
+
+                    <div class="checkbox-text">
+                        <div class="checkbox-content">
+                            <input type="checkbox" id="logCheck">
+                            <label for="logCheck" class="text">Remember me</label>
+                        </div>
+
+                        <a href="#" class="text">Forgot password?</a>
+                    </div>
+
+                    <div class="input-field button">
+                        <input type="button" value="Signup now" >
+                    </div>
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">Already a Student?</span>
+                    <a href="#" class="text signup-text">Login now</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
     <script src="/js/login.js"></script>
 </body>
