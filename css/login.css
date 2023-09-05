@@ -24,6 +24,14 @@ body{
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
+.container .forms{
+    display: flex;
+    align-items: center;
+    width: 200%;
+    height: 440px;
+    background-color: #fff;
+}
+
 .container .form{
     padding: 30px;
 }
