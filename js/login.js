@@ -3,6 +3,8 @@
 const container = document.querySelector(".container");
 const pwShowHide = document.querySelectorAll(".showHidePw");
 const pwFields = document.querySelectorAll(".password");
+const signUp = document.querySelector(".signup-link");
+const logIn = document.querySelector(".login-link");
 
 //Function of the eye icon in password section
 pwShowHide.forEach(eyeIcon =>{
@@ -23,4 +25,13 @@ pwShowHide.forEach(eyeIcon =>{
             }
         })
     })
+});
+
+//To appear signup and login
+signUp.addEventListener("click", () =>{
+    container.classList.add("active");
+});
+
+logIn.addEventListener("click", () =>{
+    container.classList.remove("active");
 });
