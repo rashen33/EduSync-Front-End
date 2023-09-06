@@ -189,13 +189,16 @@ let studentCard = document.getElementById("main-div");
 
 //----------Show searched card------------------------
 const searchBtn = document.querySelector('.search-btn');
-const studentName = document.querySelector('.search-text').value;
 
 searchBtn.addEventListener("click", () =>{
-fetch("http://localhost:8080/student/}" + `${studentName}`)
+const studentName = document.querySelector('.search-text').value;
+
+
+fetch(`http://localhost:8080/student/${studentName}`)
 .then((response) => response.json())
 .then((json) => {
     let studentCard = document.getElementById("main-div");
+
 
     let studentDiv = ``;
 
