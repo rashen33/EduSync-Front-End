@@ -102,19 +102,48 @@ function validateStudentEmail(){
       }
 }
 
+//Validating the new password
+function validateNewPassword(){
+    const newPassword = document.getElementById("newPassword").value;
+    if(newPassword === ''){
+        setError(newPasswordE,'Password is required');
+        return false;
+    }else{
+        setSuccess(newPasswordE);
+        return true;
+    }
+}
+
+//Validating the confirmpassword
+function valildateConfirmPassword(){
+    const confirmPassword = document.getElementById("confirmPassword").value;
+    const newPassword = document.getElementById("newPassword").value;
+
+    if(confirmPassword === ''){
+        setError(confirmPasswordE,'Password is required');
+        return false;
+    }else if(confirmPassword != newPassword){
+        setError(confirmPasswordE,'Password does not match');
+        return false;
+    }else{
+        setSuccess(confirmPasswordE);
+        return true;
+    }
+} 
+
 //validating all the inputs
 const isValidAllInputs = () => {
     const isValidUserName = validateUserName();
     const isValidStudentEmail = validateStudentEmail();
-    // const isValidNewPassword = validateNewPassword();
-    // const isValidConfirmPassword = valildateConfirmPassword();
+    const isValidNewPassword = validateNewPassword();
+    const isValidConfirmPassword = valildateConfirmPassword();
 
   
     return (
         isValidUserName &&
-        isValidStudentEmail 
-        // isValidNewPassword &&
-        // isValidConfirmPassword 
+        isValidStudentEmail &&
+        isValidNewPassword &&
+        isValidConfirmPassword 
     );
   };
 
