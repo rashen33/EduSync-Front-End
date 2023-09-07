@@ -343,13 +343,16 @@ let submitForm = submitBtn.addEventListener('click', (event) => {
     var raw = JSON.stringify(StudentOb);
   
     var requestOptions = {
-      method: "POST",
+      method: "PUT",
       headers: myHeaders,
       body: raw,
       redirect: "follow",
     };
   
-    fetch("http://localhost:8080/student", requestOptions)
+    let studentId = localStorage.getItem('studentId');
+    console.log(studentId);
+
+    fetch(`http://localhost:8080/student/${studentId}`, requestOptions)
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
