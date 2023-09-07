@@ -184,8 +184,38 @@ const isValidAllInputs = () => {
     
         location.reload();
 
-        alert("Success!");
+        alert("Signin Success!");
+        // document.getElementById("successModal").style.display = "flex";
+        // document.getElementById("container").style.display = "none";
     }else{
         alert("Check inputs!");
     }
   });
+
+
+  //--------------Login in ------------------------------------------
+const loginNameE = document.querySelector(".login-name");
+const loginPwE = document.querySelector(".login-pw");
+
+const loginBtn = document.querySelector(".login-btn");
+
+
+
+loginBtn.addEventListener("click", () => {
+const loginName = document.querySelector(".login-name").value;
+const loginPw = document.querySelector(".login-pw").value;
+    fetch(`http://localhost:8080/student/${loginName}`)
+        .then((response) => response.json())
+        .then((json) => {
+
+            json.forEach((element) => {
+                if(loginPw === element.password){
+                    alert("success");
+                }else{
+                    alert("fail");
+                }
+            });
+        });
+
+
+});
