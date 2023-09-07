@@ -194,28 +194,32 @@ const isValidAllInputs = () => {
 
 
   //--------------Login in ------------------------------------------
-const loginNameE = document.querySelector(".login-name");
-const loginPwE = document.querySelector(".login-pw");
-
-const loginBtn = document.querySelector(".login-btn");
-
-
-
-loginBtn.addEventListener("click", () => {
-const loginName = document.querySelector(".login-name").value;
-const loginPw = document.querySelector(".login-pw").value;
+  const loginNameE = document.querySelector(".login-name");
+  const loginPwE = document.querySelector(".login-pw");
+  
+  const loginBtn = document.querySelector(".login-btn");
+  
+  loginBtn.addEventListener("click", () => {
+    const loginName = document.querySelector(".login-name").value;
+    const loginPw = document.querySelector(".login-pw").value;
+    
     fetch(`http://localhost:8080/student/${loginName}`)
-        .then((response) => response.json())
-        .then((json) => {
-
-            json.forEach((element) => {
-                if(loginPw === element.password){
-                    alert("success");
-                }else{
-                    alert("fail");
-                }
-            });
+      .then((response) => response.json())
+      .then((json) => {
+        let loginSuccessful = false; // Initialize loginSuccessful to false
+        
+        json.forEach((element) => {
+          if (loginPw === element.password) {
+            loginSuccessful = true; // Set loginSuccessful to true if a match is found
+          }
         });
-
-
-});
+  
+        if (loginSuccessful) {
+          // Open the reg-student.html file when login is successful
+          window.location.href = "reg-form.html";
+        } else {
+          alert("Login failed. Please check your credentials.");
+        }
+      });
+  });
+  
