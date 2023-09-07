@@ -6,7 +6,7 @@ searchBtn.addEventListener("click", () =>{
 const studentName = document.querySelector('.search-text').value;
 
 
-fetch(`http://localhost:8080/student/${studentName}`)
+fetch(`http://localhost:8080/student/search/${studentName}`)
     .then((response) => response.json())
     .then((json) => {
         let studentCard = document.getElementById("main-div");
