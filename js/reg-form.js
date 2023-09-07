@@ -102,7 +102,7 @@ function validateEmail(){
   } else {
     setSuccess(emailE);
     return true;
-}
+  }
 }
 
 //Validating the address

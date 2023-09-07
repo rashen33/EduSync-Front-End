@@ -99,9 +99,9 @@ body {
     transition: all 0.2s ease;
 }
 
-.input-field input:focus, .input-field input:valid {
+/* .input-field input:focus, .input-field input:valid {
     border-bottom-color: #94A684;
-}
+} */
 
 .input-field i {
     position: absolute;
@@ -111,9 +111,9 @@ body {
     font-size: 22px;
 }
 
-.input-field input:focus ~ i, .input-field input:valid ~ i {
+/* .input-field input:focus ~ i, .input-field input:valid ~ i {
     color: #94A684;
-}
+} */
 
 .input-field i.icon {
     left: 0;
@@ -179,3 +179,24 @@ body {
     margin-top: 30px;
     text-align: center;
 }
+
+.input-field.success input {
+    border-color: #09c372;
+    border-top: 2px solid transparent;
+
+}
+
+.input-field.error input {
+    border-color: #ff3860;
+    border-top: 2px solid transparent;
+
+}
+
+.input-field .error {
+    position: absolute;
+    top: 50px;
+    color: #ff3860;
+    font-size: 10px;
+    height: 13px;
+}
+
