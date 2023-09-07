@@ -147,23 +147,21 @@ const isValidAllInputs = () => {
     );
   };
 
-  function Student(userName,StudentEmail,newPassword,confirmPassword){
+  function Student(userName,studentEmail,password){
     this.userName = userName;
     this.studentEmail = studentEmail;
-    this.newPassword = newPassword;
-    this.confirmPassword = confirmPassword;
+    this.password = password;
   }
 
   let signUpForm = signinBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
     if(isValidAllInputs()){
-        const userName = document.getElementById("username").value;
-        const studentEmail = document.getElementById("studentEmail").value;
-        const newPassword = document.getElementById("newPassword").value;
-        const confirmPassword = document.getElementById("confirmPassword").value;
+        const userNameV = document.getElementById("username").value;
+        const studentEmailV = document.getElementById("studentEmail").value;
+        const newPasswordV = document.getElementById("newPassword").value;
 
-        let RegStudentOb = new Student(userName,studentEmail,newPassword,confirmPassword);
+        let RegStudentOb = new Student(userNameV,studentEmailV,newPasswordV);
 
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
@@ -193,7 +191,7 @@ const isValidAllInputs = () => {
   });
 
 
-  //--------------Login in ------------------------------------------
+  //------------------------Login in ------------------------------------
   const loginNameE = document.querySelector(".login-name");
   const loginPwE = document.querySelector(".login-pw");
   
@@ -206,16 +204,16 @@ const isValidAllInputs = () => {
     fetch(`http://localhost:8080/student/${loginName}`)
       .then((response) => response.json())
       .then((json) => {
-        let loginSuccessful = false; // Initialize loginSuccessful to false
+        let loginSuccessful = false;
         
         json.forEach((element) => {
           if (loginPw === element.password) {
-            loginSuccessful = true; // Set loginSuccessful to true if a match is found
+            loginSuccessful = true; 
+            localStorage.setItem("studentId", element.id);
           }
         });
   
         if (loginSuccessful) {
-          // Open the reg-student.html file when login is successful
           window.location.href = "reg-form.html";
         } else {
           alert("Login failed. Please check your credentials.");
