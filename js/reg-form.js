@@ -364,5 +364,4 @@ let submitForm = submitBtn.addEventListener('click', (event) => {
   }else{
     alert("Check the inputs!");
   }
-  
 });
