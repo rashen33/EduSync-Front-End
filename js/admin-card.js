@@ -98,6 +98,7 @@ searchBtn.addEventListener("click", () => {
 
       json.forEach((element) => {
         localStorage.setItem("searchedNameID", element.id);
+        localStorage.setItem("searchedStudentName",element.name);
         studentDiv += `
           <div class="container">
               <div class="pro-image">
