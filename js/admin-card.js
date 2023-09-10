@@ -1,18 +1,19 @@
 "use strict";
-//----------Show searched card------------------------
-const searchBtn = document.querySelector(".search-btn");
+//----------------fetching data from the backend to front end--------------------
+let studentCard = document.getElementById("main-div");
 
-searchBtn.addEventListener("click", () => {
-  const studentName = document.querySelector(".search-text").value;
 
-  fetch(`http://localhost:8080/student/search/${studentName}`)
+document.addEventListener("DOMContentLoaded", () => {
+    fetch("http://localhost:8080/student/all")
     .then((response) => response.json())
     .then((json) => {
-      let studentCard = document.getElementById("main-div");
+        let studentCard = document.getElementById("main-div");
+
 
       let studentDiv = ``;
 
-      json.forEach((element) => {
+
+      json.forEach((student) => {
         studentDiv += `
         <div class="container">
             <div class="pro-image">
@@ -21,64 +22,86 @@ searchBtn.addEventListener("click", () => {
                 alt="pro-pic"
                 />
             </div>
-
+   
+   
             <div class="personal-info">
-                <span>${element.name}</span>
+                <span>${student.name}</span>
                 <div class="info">
                     <table>
                         <tr>
                         <td>Date of Birth</td>
-                        <td>${element.dob}</td>
+                        <td>${student.dob}</td>
                         </tr>
                         <tr>
                         <td>Sex</td>
-                        <td>${element.sex}</td>
+                        <td>${student.sex}</td>
                         </tr>
                         <tr>
                         <td>Email</td>
-                        <td>${element.email}</td>
+                        <td>${student.email}</td>
                         </tr>
                         <tr>
                         <td>Telephone Number</td>
-                        <td>${element.tpNumber}</td>
+                        <td>${student.tpNumber}</td>
                         </tr>
                         <tr>
                             <td>Address</td>
-                            <td>${element.address}</td>
+                            <td>${student.address}</td>
                         </tr>
                         <tr>
                         <td>Nic</td>
-                        <td>${element.nic}</td>
+                        <td>${student.nic}</td>
                         </tr>
                     </table>
                 </div>
             </div>
-
-
+   
+   
             <div class="course-details">
                 <span>Course Details</span>
                 <div class="info">
                     <table>
                         <tr>
                         <td>School</td>
-                        <td>${element.school}</td>
+                        <td>${student.school}</td>
                         </tr>
                         <tr>
                         <td>Department</td>
-                        <td>${element.department}</td>
+                        <td>${student.department}</td>
                         </tr>
                         <tr>
                         <td>Specialization</td>
-                        <td>${element.course}</td>
+                        <td>${student.course}</td>
                         </tr>
                     </table>
                 </div>
             </div>
+   
+            <div class="buttons">
+                <div class="update-btn">
+                    <button>Update</button>
+                </div>
+       
+                <div class="delete-btn">
+                    <button>Delete</button>
+                </div>
+            </div>
         </div>
-
-            `;
+ 
+          `;
       });
 
-      studentCard.innerHTML = studentDiv;
+
+        studentCard.innerHTML = studentDiv;
     });
-});
+  });
+ 
+
+
+
+
+
+
+
+
+

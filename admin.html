@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduSync Admin</title>
+
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
+    <link rel="stylesheet" href="/css/login.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="forms">
+        <div class="form login">
+          <span class="title">Admin</span>
+
+          <form action="#">
+            <div class="input-field">
+              <input
+                type="text"
+                placeholder="Enter your username"
+                class="login-name"
+              />
+              <i class="uil uil-user"></i>
+              <div class="error"></div>
+            </div>
+
+            <div class="input-field">
+              <input
+                type="password"
+                class="password login-pw"
+                placeholder="Enter your password"
+              />
+              <i class="uil uil-keyhole-circle icon"></i>
+              <i class="uil uil-eye-slash showHidePw"></i>
+              <div class="error"></div>
+            </div>
+
+            <div class="checkbox-text">
+              <div class="checkbox-content">
+                <input type="checkbox" id="logCheck" />
+                <label for="logCheck" class="text">Remember me</label>
+              </div>
+
+              <a href="#" class="text">Forgot password?</a>
+            </div>
+
+            <div class="input-field button">
+              <input type="button" value="Login" class="login-btn" />
+            </div>
+          </form>
+
+        </div>
+
+    <!-- <div class="model">
+    	<div id="successModal" class="cookiesContent" id="cookiesPopup">
+      	<img
+        	src="https://cdn0.iconfinder.com/data/icons/flat-security-icons/128/tick.png"
+        	alt="cookies-img"
+      	/>
+      	<h1>Sign-in Successfull !</h1>
+      	<button class="accept button">
+        	<a href="index-studentInterface.html" style="text-decoration: none"
+          	></a
+        	>Login
+      	</button>
+    	</div>
+  	</div> -->
+
+    <script src="/js/admin.js"></script>
+  </body>
+</html>

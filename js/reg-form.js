@@ -8,11 +8,11 @@ inputFile.onchange = function () {
 };
 
 //-------Validations for the registration form------------------
-let formE = document.querySelector('.form');
+let formE = document.querySelector(".form");
 let nameE = document.getElementById("name");
 let dobE = document.getElementById("dob");
 let sexE = document.getElementsByName("sex");
-let sexEl = document.querySelector('.sex-radio')
+let sexEl = document.querySelector(".sex-radio");
 let emailE = document.getElementById("email");
 let tpNumberE = document.getElementById("tpNumber");
 let addressE = document.getElementById("address");
@@ -23,81 +23,82 @@ let courseE = document.querySelector("#specialization");
 
 const setError = (element, message) => {
   const inputField = element.parentElement;
-  const errorDisplay = inputField.querySelector('.error');
-  
-  errorDisplay.innerText = message;
-  inputField.classList.add('error');
-  inputField.classList.remove('success');
-}
+  const errorDisplay = inputField.querySelector(".error");
 
-const setSuccess = element => {
+  errorDisplay.innerText = message;
+  inputField.classList.add("error");
+  inputField.classList.remove("success");
+};
+
+const setSuccess = (element) => {
   const inputField = element.parentElement;
-  const errorDisplay = inputField.querySelector('.error');
-  
-  errorDisplay.innerText = '';
-  inputField.classList.add('success');
-  inputField.classList.remove('error');
-}
+  const errorDisplay = inputField.querySelector(".error");
+
+  errorDisplay.innerText = "";
+  inputField.classList.add("success");
+  inputField.classList.remove("error");
+};
 
 //Validation for the name
-function validateName(){
+function validateName() {
   let nameValue = nameE.value.trim();
-    
-    if(nameValue === ''){
-      setError(nameE, 'Fullname is required');
-      return false;
-    }else{
-      setSuccess(nameE);
-      return true;
-    }
+
+  if (nameValue === "") {
+    setError(nameE, "Fullname is required");
+    return false;
+  } else {
+    setSuccess(nameE);
+    return true;
   }
+}
 
 //Validation for the birthday
-function validateDob(){
+function validateDob() {
   let dobValue = dobE.value.trim();
 
   const inValidDob = (dobValue) => {
-    let mm = dobValue.substring(5,7);
-    let dd = dobValue.substring(8,10);
-    let yy = dobValue.substring(0,4);
+    let mm = dobValue.substring(5, 7);
+    let dd = dobValue.substring(8, 10);
+    let yy = dobValue.substring(0, 4);
 
     const date = new Date();
     let year = date.getFullYear();
-    let month = date.getMonth()+1;
+    let month = date.getMonth() + 1;
     let day = date.getDay;
 
-    if(yy >= year){
+    if (yy >= year) {
       return true;
     }
     return false;
-  }
+  };
 
-  if(dobValue === ''){
-    setError(dobE,'Birthday is required');
+  if (dobValue === "") {
+    setError(dobE, "Birthday is required");
     return false;
-  }else if(inValidDob(dobValue)){
-    setError(dobE,'Enter valid birthday');
+  } else if (inValidDob(dobValue)) {
+    setError(dobE, "Enter valid birthday");
     return false;
-  }else{
+  } else {
     setSuccess(dobE);
     return true;
   }
 }
 
-  //Validating the email
-function validateEmail(){
+//Validating the email
+function validateEmail() {
   let emailValue = emailE.value.trim();
 
-  const isValidEmail = emailValue => {
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const isValidEmail = (emailValue) => {
+    const re =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(emailValue).toLowerCase());
-  } 
+  };
 
-  if(emailValue === '') {
-    setError(emailE, 'Email is required');
+  if (emailValue === "") {
+    setError(emailE, "Email is required");
     return false;
   } else if (!isValidEmail(emailValue)) {
-    setError(emailE, 'Provide a valid email address');
+    setError(emailE, "Provide a valid email address");
     return false;
   } else {
     setSuccess(emailE);
@@ -106,11 +107,11 @@ function validateEmail(){
 }
 
 //Validating the address
-function validateAddress(){
+function validateAddress() {
   let addressValue = addressE.value.trim();
 
-  if(addressValue === '') {
-    setError(addressE, 'Address is required');
+  if (addressValue === "") {
+    setError(addressE, "Address is required");
     return false;
   } else {
     setSuccess(addressE);
@@ -119,111 +120,146 @@ function validateAddress(){
 }
 
 //Validating the tpNumber
-function validateTpNumber(){
+function validateTpNumber() {
   let tpNumberValue = tpNumberE.value.trim();
 
-  let isValidTpNumber = tpNumberValue => {
-    if(tpNumberValue.charAt(0) != 0){
+  let isValidTpNumber = (tpNumberValue) => {
+    if (tpNumberValue.charAt(0) != 0) {
       return false;
     }
 
     let tpS = tpNumberValue.toString();
-    let tp = tpS.substring(1,10);
+    let tp = tpS.substring(1, 10);
 
-    if(tp.length != 9){
+    if (tp.length != 9) {
       return false;
     }
 
-    let serviceCode = ["70","71","72","74","75","76","77","78","11","36","31","33","38","34","81","54","51","52","66","91","41","47","21","23","24","63","65","67","26","25","27","32","37","55","57","45","35"];
-    for(let i=0; i<serviceCode.length; i++){
-      if(tpS.substring(1,3) == (serviceCode[i])){
+    let serviceCode = [
+      "70",
+      "71",
+      "72",
+      "74",
+      "75",
+      "76",
+      "77",
+      "78",
+      "11",
+      "36",
+      "31",
+      "33",
+      "38",
+      "34",
+      "81",
+      "54",
+      "51",
+      "52",
+      "66",
+      "91",
+      "41",
+      "47",
+      "21",
+      "23",
+      "24",
+      "63",
+      "65",
+      "67",
+      "26",
+      "25",
+      "27",
+      "32",
+      "37",
+      "55",
+      "57",
+      "45",
+      "35",
+    ];
+    for (let i = 0; i < serviceCode.length; i++) {
+      if (tpS.substring(1, 3) == serviceCode[i]) {
         return true;
       }
     }
     return false;
-  }
+  };
 
-  if(tpNumberValue === '') {
-    setError(tpNumberE, 'Telephone number is required');
+  if (tpNumberValue === "") {
+    setError(tpNumberE, "Telephone number is required");
     return false;
-  } else if (!isValidTpNumber(tpNumberValue)){
-    setError(tpNumberE, 'Invalid telephone number');
+  } else if (!isValidTpNumber(tpNumberValue)) {
+    setError(tpNumberE, "Invalid telephone number");
     return false;
   } else {
     setSuccess(tpNumberE);
     return true;
-}
-
+  }
 }
 
 //Validating the nic
-function validateNic(){ 
+function validateNic() {
   let nicValue = nicE.value.trim();
 
-  let isValidNic = nicValue => {
+  let isValidNic = (nicValue) => {
     let nicS = nicValue.toString();
-    if(nicS.length == 12){
+    if (nicS.length == 12) {
       return true;
     }
-    if(nicS.length != 10 && nicS.substring(8,10).toUpperCase != 'V'){
+    if (nicS.length != 10 && nicS.substring(8, 10).toUpperCase != "V") {
       return false;
     }
     return true;
-  }
+  };
 
-
-  if(nicValue == ''){
-    setError(nicE, 'NIC is required');
+  if (nicValue == "") {
+    setError(nicE, "NIC is required");
     return false;
-  }else if(!isValidNic(nicValue)){
-    setError(nicE, 'Invalid NIC number');
+  } else if (!isValidNic(nicValue)) {
+    setError(nicE, "Invalid NIC number");
     return false;
-  }else{
+  } else {
     setSuccess(nicE);
     return true;
   }
-
 }
 
 //Validating the radio button of sex
-function validateSex(){  
-  let isChecked = sexE =>{
+function validateSex() {
+  let isChecked = (sexE) => {
     for (let i = 0; i < sexE.length; i++) {
-      if (sexE[i].checked){
+      if (sexE[i].checked) {
         return true;
       }
     }
     return false;
-  }
+  };
 
-  if(!isChecked(sexE)){
-    setError(sexEl, 'Select an option');
+  if (!isChecked(sexE)) {
+    setError(sexEl, "Select an option");
     return false;
-  }else{
+  } else {
     setSuccess(sexEl);
     return true;
   }
 }
 
 //Validating the school
-function validateSchool(schooE){
+function validateSchool(schooE) {
   let schoolValue = schooE.value.trim();
 
-  if(schoolValue === 'Select your school'){
-    setError(schooE,'Select an option');
+  if (schoolValue === "Select your school") {
+    setError(schooE, "Select an option");
     return false;
-  }else{
+  } else {
     setSuccess(schooE);
     return true;
   }
 }
 
 //Validating the department
-function validateDepartment(departmentE){
+function validateDepartment(departmentE) {
   let departmentValue = departmentE.value.trim();
 
-  if(departmentValue === 'Select your department') {
-    setError(departmentE, 'Select an option');
+  if (departmentValue === "Select your department") {
+    setError(departmentE, "Select an option");
     return false;
   } else {
     setSuccess(departmentE);
@@ -232,18 +268,17 @@ function validateDepartment(departmentE){
 }
 
 //Validating the Course
-function validateCourse(courseE){
+function validateCourse(courseE) {
   let courseValue = courseE.value.trim();
 
-  if(courseValue === 'Select your specialization') {
-    setError(courseE, 'Select an option');
+  if (courseValue === "Select your specialization") {
+    setError(courseE, "Select an option");
     return false;
   } else {
     setSuccess(courseE);
     return true;
   }
 }
-
 
 //------Getting the student entity data from the front end----------
 
@@ -273,7 +308,6 @@ const isValidAllInputs = () => {
     isValidCourse
   );
 };
-
 
 function Student(
   name,
@@ -308,11 +342,10 @@ function displayRadioValue() {
   }
 }
 
-let submitForm = submitBtn.addEventListener('click', (event) => {
-
+let submitForm = submitBtn.addEventListener("click", (event) => {
   event.preventDefault();
-  
-  if(isValidAllInputs()){
+
+  if (isValidAllInputs()) {
     let name = document.getElementById("name").value;
     let dob = document.getElementById("dob").value;
     let sex = displayRadioValue();
@@ -323,7 +356,7 @@ let submitForm = submitBtn.addEventListener('click', (event) => {
     let school = document.querySelector("#school").value;
     let department = document.querySelector("#department").value;
     let course = document.querySelector("#specialization").value;
-  
+
     let StudentOb = new Student(
       name,
       dob,
@@ -336,20 +369,20 @@ let submitForm = submitBtn.addEventListener('click', (event) => {
       department,
       course
     );
-  
+
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-  
+
     var raw = JSON.stringify(StudentOb);
-  
+
     var requestOptions = {
       method: "PUT",
       headers: myHeaders,
       body: raw,
       redirect: "follow",
     };
-  
-    let studentId = localStorage.getItem('studentId');
+
+    let studentId = localStorage.getItem("studentId");
     console.log(studentId);
 
     fetch(`http://localhost:8080/student/${studentId}`, requestOptions)
@@ -359,9 +392,8 @@ let submitForm = submitBtn.addEventListener('click', (event) => {
 
     location.reload();
 
-    alert("Successfully Registered!")
-  
-  }else{
+    alert("Successfully Registered!");
+  } else {
     alert("Check the inputs!");
   }
 });
