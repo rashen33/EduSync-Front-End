@@ -516,7 +516,7 @@ document.addEventListener("DOMContentLoaded", () => {
           location.reload();
 
           alert("Successfully Registered!");
-          window.location.href = "home.html";
+          window.location.href = "admin-card.html";
         } else {
           alert("Check the inputs!");
         }
