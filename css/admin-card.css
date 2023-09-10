@@ -9,7 +9,7 @@
 
 body {
     min-height: 100vh;
-    background-color: #AEC3AE;
+    background-color: #E4E4D0;
 }
 
 form {
@@ -140,10 +140,6 @@ form .container {
     width: 18px;
 }
 
-.search .home-btn{
-    margin-left: 10px;
-}
-
 .footer {
     color: "black";
     display: flex;
@@ -160,4 +156,8 @@ form .container {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.search .delete-btn,.update-btn,.home-btn{
+    margin-left: 10px;
 }

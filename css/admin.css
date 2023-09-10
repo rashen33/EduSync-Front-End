@@ -1,0 +1,257 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #E4E4D0;
+}
+
+.container {
+  /* display: none; */
+  position: relative;
+  max-width: 430px;
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.container .forms {
+  display: flex;
+  align-items: center;
+  height: 440px;
+  width: 200%;
+  background-color: #fff;
+  transition: margin-left 0.18s ease;
+}
+
+.container .form {
+  width: 50%;
+  padding: 30px;
+  background-color: #fff;
+}
+
+.container .signup {
+  opacity: 0;
+  transition: opacity 0.09s ease;
+}
+.container.active .signup {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.container.active .forms {
+  height: 600px;
+}
+
+.container.active .login {
+  margin-left: -50%;
+  opacity: 0;
+  transition: margin-left 0.18s ease, opactiy 0.15s ease;
+}
+
+.container .form .title {
+  position: relative;
+  font-size: 27px;
+  font-weight: 600;
+}
+
+.container .form .title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  background-color: #94a684;
+  border-radius: 35px;
+}
+
+.form .input-field {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.input-field input {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 0 35px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #ccc;
+  border-top: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+/* .input-field input:focus, .input-field input:valid {
+    border-bottom-color: #94A684;
+} */
+
+.input-field i {
+  position: absolute;
+  top: 50%;
+  color: #999;
+  transform: translateY(-50%);
+  font-size: 22px;
+}
+
+/* .input-field input:focus ~ i, .input-field input:valid ~ i {
+    color: #94A684;
+} */
+
+.input-field i.icon {
+  left: 0;
+}
+
+.input-field i.showHidePw {
+  right: 0;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.form .checkbox-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.checkbox-text .checkbox-content {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-content input {
+  margin: 0 8px 0 4px;
+  accent-color: #94a684;
+}
+
+.form a.text {
+  color: cornflowerblue;
+  font-size: 14px;
+}
+
+.form a {
+  text-decoration: none;
+}
+
+.form a:hover {
+  text-decoration: underline;
+}
+
+.form .button {
+  margin-top: 35px;
+}
+
+.form .button input {
+  border: none;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 26px;
+  background-color: #94a684;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button input:hover {
+  background-color: #aec3ae;
+}
+
+.form .login-signup {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.input-field.success input {
+  border-color: #09c372;
+  border-top: 2px solid transparent;
+}
+
+.input-field.error input {
+  border-color: #ff3860;
+  border-top: 2px solid transparent;
+}
+
+.input-field .error {
+  position: absolute;
+  top: 50px;
+  color: #ff3860;
+  font-size: 10px;
+  height: 13px;
+}
+
+/* Popup Style
+.model{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 180px 0;
+}
+
+#successModal {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 340vh;
+    width: 30%;
+    padding: 40px;
+    margin: auto auto;
+    background: #FFFFFF;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 20px 6px #ccc;
+    height: 400px;
+    
+  }
+
+  .cookiesContent {
+    width: 320px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    border-radius: 20px;
+    padding: 30px 30px 70px;
+  
+  
+    p {
+      margin-bottom: 40px;
+      font-size: 18px;
+    }
+  
+  }
+  img {
+    width: 200px;
+    margin-bottom: 15px;
+  }
+  .accept {
+    color: #fff;
+    font-size: 16px;
+    padding: 12px 35px;
+    border-radius: 50px;
+    display: inline-block;
+    border: 0;
+    outline: 0;
+    box-shadow: 0px 4px 20px 0px #49c628a6;
+    background-image: linear-gradient(135deg, #70F570 10%, #49C628 100%);
+  } */

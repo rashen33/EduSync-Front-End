@@ -74,15 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             </div>
    
-            <div class="buttons">
-                <div class="update-btn">
-                    <button>Update</button>
-                </div>
-       
-                <div class="delete-btn">
-                    <button>Delete</button>
-                </div>
-            </div>
         </div>
  
           `;
@@ -167,15 +158,6 @@ searchBtn.addEventListener("click", () => {
                           </tr>
                       </table>
                   </div>
-              </div>
-
-              <div class="buttons">
-              <div class="update-btn">
-                  <button>Update</button>
-              </div>
-     
-              <div class="delete-btn">
-                  <button>Delete</button>
               </div>
           </div>
 

@@ -393,6 +393,7 @@ let submitForm = submitBtn.addEventListener("click", (event) => {
     location.reload();
 
     alert("Successfully Registered!");
+    window.location.href = "home.html";
   } else {
     alert("Check the inputs!");
   }
