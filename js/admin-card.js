@@ -191,3 +191,5 @@ deleteBtn.addEventListener("click", () => {
   alert("Student Deleted");
   window.location.href = "admin-card.html";
 });
+
+
