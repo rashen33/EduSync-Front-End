@@ -36,6 +36,8 @@
 
 **User Interface:**
 
+-These are the user interfaces of the front end.
+
 ![Home Screen](https://github.com/rashen33/EduSync-Front-End/assets/128305496/b9cae308-ae4a-4766-a020-2a7fc551e7c4)
 ![Student Portal Options](https://github.com/rashen33/EduSync-Front-End/assets/128305496/063a203f-97e7-4423-960c-5d5bc9612c41)
 ![View Student Card - Admin View](https://github.com/rashen33/EduSync-Front-End/assets/128305496/048f864d-ee6a-4974-8a96-c81a4fcf68ee)
